@@ -8,6 +8,19 @@ class App extends React.Component {
 		report: null,
 	}
 
+componentDidMount() {
+	fetch('http://api.openweathermap.org/data/2.5/weather?q=Lund&units=metric&appid=a9f6719e37f20890ebff5d91724dec1f')
+		.then(response => {
+			this.setState({
+				errorMessage: false,
+				report: response.data,
+			})
+		}
+	)
+}
+
+
+
 	render() {
 		return (
 			<div id="app">
